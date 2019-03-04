@@ -33,7 +33,7 @@ func (c *ControllerTemplate) Index() {
 	c.Response.Write("index.html")
 
 }
-func main() {
+func main2() {
 	s := ghttp.GetServer()
 	s.BindController("/template", new(ControllerTemplate))
 	s.SetPort(8080)

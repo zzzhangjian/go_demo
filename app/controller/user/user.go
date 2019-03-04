@@ -2,8 +2,8 @@ package ctl_user
 
 import (
 	"github.com/gogf/gf/g/net/ghttp"
-	"../../library/response"
-	"../../library/user"
+	"github.com/zzzhangjian/go_demo/app/library/response"
+	"github.com/zzzhangjian/go_demo/app/library/user"
 	"github.com/gogf/gf/g/util/gvalid"
 )
 type Controller struct {}

@@ -5,7 +5,7 @@ import (
 	"github.com/gogf/gf/g/frame/gins"
 )
 
-func main() {
+func main1() {
 	s := ghttp.GetServer()
 	s.BindHandler("/template", func(r *ghttp.Request) {
 		content,_ := gins.View().Parse("index.html",map[string]interface{}{
