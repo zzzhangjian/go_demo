@@ -2,8 +2,8 @@ package ctl_user
 
 import (
 	"github.com/gogf/gf/g/net/ghttp"
-	"github.com/zzzhangjian/go_demo/app/library/response"
-	"github.com/zzzhangjian/go_demo/app/library/user"
+	_ "github.com/zzzhangjian/go_demo/app/library/response"
+	_ "github.com/zzzhangjian/go_demo/app/library/user"
 	"github.com/gogf/gf/g/util/gvalid"
 )
 type Controller struct {}
@@ -44,7 +44,7 @@ func (c *Controller) IsSignedIn(r *ghttp.Request){
 	}
 }
 
-func (c *Controller) SingOut(r *ghttp.Request) {
+func (c *Controller) SignOut(r *ghttp.Request) {
 	lib_user.SignOut(r.Session)
 	lib_response.Json(r,0,"ok")
 }
