@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gogf/gf/g"
-	"github.com/zzzhangjian/go_demo/app/controller/user"
+	"github.com/zzzhangjian/go_demo/app/api/user"
 )
 
 func init()  {
