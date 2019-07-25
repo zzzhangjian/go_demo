@@ -3,20 +3,21 @@ package main
 import (
 	"fmt"
 	"github.com/gogf/gf/g/database/gdb"
+	"github.com/gogf/gf/g/os/gtime"
 	"time"
 )
 
 type User struct {
-	Id               int       `gconv:"id"`
-	LoginId          string    `gconv:"u_login_id"`
-	Nickname         string    `gconv:"u_nick_name"`
-	Password         string    `gconv:"u_password"`
-	FriendshipPolicy int       `gconv:"u_friendship_policy_id"`
-	State            int       `gconv:"u_user_state_id"`
-	PolicyQuestion   string    `gconv:"u_friend_policy_question"`
-	PolicyAnswer     string    `gconv:"u_friend_policy_answer"`
-	PolicyPassword   string    `gconv:"u_friend_policy_password"`
-	RegTime          time.Time `gconv:"u_reg_time"`
+	Id               int    `gconv:"id"`
+	LoginId          string `gconv:"u_login_id"`
+	Nickname         string `gconv:"u_nick_name"`
+	Password         string `gconv:"u_password"`
+	FriendshipPolicy int    `gconv:"u_friendship_policy_id"`
+	State            int    `gconv:"u_user_state_id"`
+	PolicyQuestion   string `gconv:"u_friend_policy_question"`
+	PolicyAnswer     string `gconv:"u_friend_policy_answer"`
+	PolicyPassword   string `gconv:"u_friend_policy_password"`
+	RegTime          string `gconv:"u_reg_time"`
 }
 
 type UserFriendshipPolicy struct {
@@ -56,30 +57,30 @@ func main() {
 	}
 	fmt.Println(recordState)
 
-	var cstZone = time.FixedZone("CST", 8*3600)
+	//var cstZone = time.FixedZone("CST", 8*3600)
+	local, _ := time.LoadLocation("Asia/Shanghai")
+	regTime := time.Now().In(local)
+	fmt.Println(regTime)
+
 	var user = User{
-		LoginId:          "zjlongId",
-		Nickname:         "nicdddd",
-		Password:         "sssss",
+		LoginId:          "wx_132",
+		Nickname:         "nickname",
+		Password:         "password",
 		FriendshipPolicy: ufp.Id,
 		State:            state.Id,
-		RegTime:          time.Now().In(cstZone),
+		RegTime:          gtime.Datetime(),
 	}
+	fmt.Println(user)
+	db.Table("user").Data(user).Save()
 
-	r, err := db.Table("user").Data(user).Save()
-	if err != nil {
-		fmt.Println(err)
-		panic(err)
-	}
-	fmt.Println(r)
-
-	result, err := db.Table("user").All()
+	result, err := db.Table("user").Where("u_login_id", "wx_132").One()
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		for item := range result {
-			fmt.Println(item)
+		for i, item := range result {
+			fmt.Println(i, item)
 		}
+
 	}
 
 	u, err := db.Table("user").Where(User{Nickname: "jjjjjj"}).One()
