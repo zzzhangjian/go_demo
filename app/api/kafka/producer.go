@@ -1,6 +1,4 @@
-package main
-
-//package ctl_kafka
+package ctl_kafka
 
 import (
 	"fmt"
