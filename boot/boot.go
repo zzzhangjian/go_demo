@@ -2,18 +2,18 @@ package boot
 
 import (
 	"github.com/gogf/gf/g"
-	"github.com/gogf/gf/g/os/glog"
 	"github.com/gogf/gf/g/net/ghttp"
+	"github.com/gogf/gf/g/os/glog"
 )
 
-func init()  {
+func init() {
 	v := g.View()
 	c := g.Config()
 	s := g.Server()
 
 	c.AddPath("config")
 	v.AddPath("template")
-	v.SetDelimiters("${","}")
+	v.SetDelimiters("${", "}")
 
 	logpath := c.GetString("setting.logpath")
 	glog.SetPath(logpath)
@@ -25,4 +25,5 @@ func init()  {
 	s.SetErrorLogEnabled(true)
 	s.SetAccessLogEnabled(true)
 	s.SetPort(8080)
+
 }

@@ -1,12 +1,11 @@
 package main
 
-
-
 import (
-	_ "github.com/zzzhangjian/go_demo/router"
-	_ "github.com/zzzhangjian/go_demo/boot"
 	"github.com/gogf/gf/g"
+	_ "github.com/zzzhangjian/go_demo/boot"
+	_ "github.com/zzzhangjian/go_demo/router"
 )
-func main(){
+
+func main() {
 	g.Server().Run()
 }

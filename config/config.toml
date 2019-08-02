@@ -11,3 +11,7 @@
         pass = "root"
         name = "go_db"
         type = "mysql"
+# kafka 配置
+[kafka]
+    addr  = "127.0.0.1:9092"
+    topic = "hello"

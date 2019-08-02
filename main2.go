@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/gogf/gf/g/net/ghttp"
 	"github.com/gogf/gf/g/frame/gmvc"
+	"github.com/gogf/gf/g/net/ghttp"
 )
 
 type ControllerTemplate struct {
@@ -10,10 +10,10 @@ type ControllerTemplate struct {
 }
 
 func (c *ControllerTemplate) Info() {
-	c.View.Assign("name","jhon")
+	c.View.Assign("name", "jhon")
 	c.View.Assigns(map[string]interface{}{
-		"age":11,
-		"score":88.5,
+		"age":   11,
+		"score": 88.5,
 	})
 	c.View.DisplayContent(`
 		<html>
