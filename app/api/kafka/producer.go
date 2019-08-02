@@ -12,7 +12,7 @@ var (
 	partition = int32(-1)
 )
 
-func main() {
+func producer() {
 	config := sarama.NewConfig()
 	config.Producer.RequiredAcks = sarama.WaitForAll
 	config.Producer.Partitioner = sarama.NewRandomPartitioner

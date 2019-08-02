@@ -12,13 +12,13 @@ var (
 	key       = sarama.StringEncoder("key")
 )
 
-func newKafkaClientProducer(addr []string) (err error) {
+func newKafkaClientProducer(addr []string) (*sarama.SyncProducererr, error) {
 	config := sarama.NewConfig()
 	config.Producer.RequiredAcks = sarama.WaitForAll
 	config.Producer.Partitioner = sarama.NewRandomPartitioner
 	config.Producer.Return.Successes = true
-	sarama.NewSyncProducer(addr, config)
-	return
+	producer, err := sarama.NewSyncProducer(addr, config)
+	return (producer,err)
 }
 
 func producer() {
