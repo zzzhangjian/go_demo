@@ -3,6 +3,7 @@ package ctl_kafka
 import (
 	"fmt"
 	"github.com/Shopify/sarama"
+	"github.com/zzzhangjian/go_demo/library/kafka"
 )
 
 var (
@@ -11,14 +12,10 @@ var (
 )
 
 func producer() {
-	config := sarama.NewConfig()
-	config.Producer.RequiredAcks = sarama.WaitForAll
-	config.Producer.Partitioner = sarama.NewRandomPartitioner
-	config.Producer.Return.Successes = true
 
 	addr := []string{"localhost:9092"}
 
-	producer, err := sarama.NewSyncProducer(addr, config)
+	producer, err := NewKafkaClientProducer(addr, config)
 	if err != nil {
 		panic(err)
 	}
