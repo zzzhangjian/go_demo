@@ -6,4 +6,5 @@ require (
 	github.com/gogf/gkafka v1.0.0 // indirect
 	github.com/jinzhu/gorm v1.9.10
 	github.com/regcostajr/go-web3 v0.0.0-20180609031449-555e83b623dd
+	golang.org/x/tools v0.0.0-20190815144358-9065c182e3b6
 )
